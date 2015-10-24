@@ -1,0 +1,10 @@
+select customer.customerid, firstname||' '||lastname "Customer Name", status, statusreason, startdate, billing.duedate, paiddate, statusdate, to_char(paidamount, '$99.99') "Paid Amount" from customer join billing on customer.customerid = billing.customerid;
+
+update customer
+set status = 'Inactive'
+where customerid in
+(select billing.customerid
+from customer join billing on customer.customerid = billing.customerid
+where (customer.statusdate - billing.duedate) > 30);
+
+select customer.customerid, firstname||' '||lastname "Customer Name", status, statusreason, startdate, billing.duedate, paiddate, statusdate, employeeid "Emp Change" from customer join billing on customer.customerid = billing.customerid;

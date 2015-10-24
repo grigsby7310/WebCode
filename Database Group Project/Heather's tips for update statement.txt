@@ -1,0 +1,5 @@
+Heather Goldade: So I think 4 columns: CustomerID, Date made inactive, reason, and employeeID
+
+Heather Goldade: then, in your update statement, the statusdate, status reason and status will be changed
+
+Heather's #

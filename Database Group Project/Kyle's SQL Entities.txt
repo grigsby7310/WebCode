@@ -1,0 +1,60 @@
+--Kyle Grigsby
+--Group Table Contributions
+
+DROP TABLE PROGRAM CASCADE CONSTRAINTS PURGE;
+DROP TABLE CUSTOMER_PACKAGE CASCADE CONSTRAINTS PURGE;
+DROP TABLE BILLING CASCADE CONSTRAINTS PURGE;
+
+CREATE TABLE Program
+(
+ProgramID NUMBER(5) program_programid_pk PRIMARY KEY,
+ProgramName VARCHAR(15) NOT NULL,
+ProgramDescription VARCHAR(30),
+Length VARCHAR(15) NOT NULL,
+SupplierID NUMBER(5) NOT NULL,
+RatingID NUMBER(5) NOT NULL,
+ChannelTypeID NUMBER(5) NOT NULL
+);
+
+ALTER TABLE Program
+ADD CONSTRAINT program_supplierid_fk FOREIGN KEY (SupplierID)
+REFERENCES Supplier;
+
+ALTER TABLE Program
+ADD CONSTRAINT program_ratingid_fk FOREIGN KEY (RatingID)
+REFERENCES Rating;
+
+ALTER TABLE Program
+ADD CONSTRAINT program_channeltypeid_fk FOREIGN KEY (ChannelType)
+REFERENCES ChannelType;
+
+CREATE TABLE Customer_Package
+(
+PackageID NUMBER(5),
+CustomerID NUMBER(5),
+SubscribeDate VARCHAR(10),
+CONSTRAINT customerpackage_packageid_customerid_pk PRIMARY KEY (PackageID, CustomerID)
+);
+
+ALTER TABLE Customer_Package
+ADD CONSTRAINT customerpackage_packageid_fk FOREIGN KEY (PackageID)
+REFERENCES Package;
+
+ALTER TABLE Customer_Package
+ADD CONSTRAINT customerpackage_customerid_fk FOREIGN KEY (CustomerID)
+REFERENCES Customer;
+
+CREATE TABLE Billing
+(
+BillingID NUMBER(5) CONSTRAINT billing_billingid_pk PRIMARY KEY,
+CustomerID NUMBER(5) NOT NULL,
+BillingDate VARCHAR(10) NOT NULL,
+DueDate VARCHAR(10) NOT NULL,
+DueAmount VARCHAR(10) NOT NULL,
+PaidDate VARCHAR(10),
+PaidAmount VARCHAR(10)
+);
+
+ALTER TABLE Billing
+ADD CONSTRAINT billing_customerid_fk FOREIGN KEY (CustomerID)
+REFERENCES Customer;

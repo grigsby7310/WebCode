@@ -1,0 +1,32 @@
+select status
+from customer;
+
+update customer
+set status = 'Active'
+where status = 'Inactive';
+
+select customer.firstname, lastname, status, statusreason, billing.duedate, paiddate
+from customer join billing
+on customer.customerid = billing.customerid;
+
+Heather Goldade: These are needed: Unpaid and not past due, Unpaid and past due, but not delinquent
+
+A list of each channel (both channel name and channel number) and a count of the number of customers who picked that channel as a favorite channel.
+select COUNT(survey.customerid), channel.channelname, channel.channelnumber
+from survey join channel
+on channel.channelid = survey.channelid
+group by customerid;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

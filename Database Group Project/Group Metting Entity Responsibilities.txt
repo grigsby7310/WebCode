@@ -1,0 +1,34 @@
+Joshua:
+Customer -
+Survey -
+
+Heather:
+Channel -
+ChannelPackage -
+Supplier -
+
+Kyle:
+Program -
+CustomerPackage
+Billing -
+
+Breanna:
+Rating -
+Package -
+
+Honda:
+ProgramChannel -
+ChannelType -
+Employee -
+
+Finished Tables:
+Customer
+Survey
+
+What needs to be done:
+Rating
+Package
+
+ERD:
+Remove ProgramID from Supplier
+Remove CustomerID from ChannelPackage

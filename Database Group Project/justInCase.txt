@@ -1,0 +1,218 @@
+--Kyle Grigsby
+--Lab 3
+
+--drop tables
+
+DROP TABLE ENROLLMENT CASCADE CONSTRAINTS PURGE; 
+DROP TABLE COURSE_SECTION CASCADE CONSTRAINTS PURGE; 
+DROP TABLE COURSE CASCADE CONSTRAINTS PURGE; 
+DROP TABLE TERM CASCADE CONSTRAINTS PURGE; 
+DROP TABLE STUDENT CASCADE CONSTRAINTS PURGE;
+DROP TABLE FACULTY CASCADE CONSTRAINTS PURGE; 
+DROP TABLE LOCATION CASCADE CONSTRAINTS PURGE; 
+
+CREATE TABLE Location
+(
+Locid NUMBER(5) CONSTRAINT location_locid_pk PRIMARY KEY,
+Bldg_Code VARCHAR2(10) NOT NULL,
+Room VARCHAR2(6) NOT NULL,
+Capacity NUMBER(5)
+);
+
+CREATE TABLE Faculty
+(
+Fid NUMBER(4) CONSTRAINT faculty_fid_pk PRIMARY KEY,
+Flname VARCHAR2(25) NOT NULL,
+Ffname VARCHAR2(25) NOT NULL,
+Fmi CHAR(1),
+Fphone NUMBER(10),
+F_rank VARCHAR2(4),
+F_pin NUMBER(4)
+);
+
+ALTER TABLE Faculty
+ADD CONSTRAINT faculty_F_rank_cc
+CHECK (F_rank in ('ASSO', 'FULL', 'ASST', 'ADJ'));
+
+CREATE TABLE Student
+(
+Sid NUMBER(5) CONSTRAINT student_sid_pk PRIMARY KEY,
+Slname VARCHAR2(25) NOT NULL,
+Sfname VARCHAR(25) NOT NULL,
+Smi CHAR(1),
+Saddr VARCHAR2(30),
+Scity VARCHAR2(30),
+Sstate CHAR(2) DEFAULT 'WI',
+Szip NUMBER(9),
+Sphone NUMBER(10) NOT NULL,
+Sclass CHAR(2) DEFAULT 'FR',
+Sdob DATE NOT NULL,
+S_pin NUMBER(4) NOT NULL,
+Fid NUMBER(4) 
+);
+
+ALTER TABLE Student
+ADD CONSTRAINT student_fid_fk FOREIGN KEY (Fid)
+REFERENCES Faculty;
+
+ALTER TABLE Student
+ADD CONSTRAINT student_Sclass_cc
+CHECK (Sclass in ('FR', 'SO', 'JR', 'SR', 'GR'));
+
+CREATE TABLE Term
+(
+Termid NUMBER(5) CONSTRAINT term_termid_pk PRIMARY KEY,
+Tdesc VARCHAR(20) NOT NULL,
+Status VARCHAR(20) NOT NULL
+);
+
+ALTER TABLE Term
+ADD CONSTRAINT term_Status_cc
+CHECK (Status in ('OPEN', 'CLOSED'));
+
+CREATE TABLE Course
+(
+Cid NUMBER(6) CONSTRAINT course_cid_pk PRIMARY KEY,
+Callid VARCHAR2(10) NOT NULL,
+Cname VARCHAR2(30) NOT NULL,
+Ccredit NUMBER(2) DEFAULT '3'
+);
+
+CREATE TABLE Course_Section
+(
+Csecid NUMBER(8) CONSTRAINT coursesection_csecid_pk PRIMARY KEY,
+Cid NUMBER(6) NOT NULL,
+Termid NUMBER(5) NOT NULL,
+Secnum NUMBER(2) NOT NULL,
+Fid NUMBER(4),
+Day VARCHAR2(10),
+Locid NUMBER(5),
+Maxenrl NUMBER(4) NOT NULL,
+Currenrl NUMBER(4) NOT NULL
+);
+
+ALTER TABLE Course_Section
+ADD CONSTRAINT coursesection_cid_fk FOREIGN KEY (Cid)
+REFERENCES Course;
+
+ALTER TABLE Course_Section
+ADD CONSTRAINT coursesection_termid_fk FOREIGN KEY (Termid)
+REFERENCES Term;
+
+ALTER TABLE Course_Section
+ADD CONSTRAINT coursesection_fid_fk FOREIGN KEY (Fid)
+REFERENCES Faculty;
+
+ALTER TABLE Course_Section
+ADD CONSTRAINT coursesection_locid_fk FOREIGN KEY (Locid)
+REFERENCES Location;
+
+CREATE TABLE Enrollment
+(
+Sid NUMBER(5),
+Csecid NUMBER(8),
+Grade CHAR(1),
+CONSTRAINT enrollment_sid_csecid_pk PRIMARY KEY (Sid, Csecid)
+);
+
+ALTER TABLE Enrollment
+ADD CONSTRAINT enrollment_sid_fk FOREIGN KEY (Sid)
+REFERENCES Student;
+
+ALTER TABLE Enrollment
+ADD CONSTRAINT enrollment_csecid_fk FOREIGN KEY (Csecid)
+REFERENCES Course_Section;
+
+ALTER TABLE Enrollment
+ADD CONSTRAINT enrollment_Grade_cc
+CHECK (Grade in ('A', 'B', 'C', 'D', 'F', 'I', 'W'));
+
+INSERT INTO Location
+VALUES(53, 'BUS', '424', 45);
+
+INSERT INTO Location
+VALUES(54, 'BUS', '402', 35);
+
+INSERT INTO Location
+VALUES(55, 'BUS', '433', 100);
+________________________________
+
+INSERT INTO Faculty
+VALUES(10, 'Cox', 'Kim', 'J', 7155551234, 'ASSO', 1181);
+
+INSERT INTO Faculty
+VALUES(11, 'Blanchard', 'Frank', 'R', 7155559087, 'FULL', 1075);
+
+INSERT INTO Faculty
+VALUES(12, 'McClure', 'William', 'L', 7155556409, 'ADJ', 1690);
+________________________________
+
+INSERT INTO Student
+VALUES(100, 'McClure', 'Sarah', 'M', '144 Windridge Blvd.', 'Eau Claire', 'WI', 54703, 7155559876, 'SR', '14-JUL-1979', 8891, 10);
+
+INSERT INTO Student
+VALUES(101, 'Bowie', 'Jim', 'D', '454 St. John Street', 'Eau Claire', 'WI', 54702, 7155552345, 'SR', '19-AUG-1979', 1230, 11);
+
+INSERT INTO Student
+VALUES(102, 'Boone', 'Daniel', NULL, '8921 Circle Drive', 'Bloomer', 'WI', 54715, 7155553907, 'JR', '10-OCT-1977', 1613, 11);
+________________________________
+
+INSERT INTO Term
+VALUES(1, 'Spring 2004', 'CLOSED');
+
+INSERT INTO Term
+VALUES(2, 'Summer 2004', 'OPEN');
+________________________________
+
+INSERT INTO Course
+VALUES(1, 'MIS101', 'Intro. to Info. Systems', 3);
+
+INSERT INTO Course
+VALUES(2, 'MIS321', 'Systems Analysis and Design', 3);
+
+INSERT INTO Course
+VALUES(3, 'MIS349', 'Intro to Database Management', 3);
+________________________________
+
+INSERT INTO Course_Section
+VALUES(1000, 1, 2, 1, 12, 'MWF', 55, 100, 35);
+
+INSERT INTO Course_Section
+VALUES(1001, 1, 2, 2, 10, 'TTH', 54, 45, 35);
+
+INSERT INTO Course_Section
+VALUES(1002, 2, 2, 3, 10, 'MWF', 53, 35, 32);
+
+INSERT INTO Course_Section
+VALUES(1003, 3, 2, 1, 11, 'TTH', 54, 45, 35);
+________________________________
+
+INSERT INTO Enrollment
+VALUES(100, 1000, 'A');
+
+INSERT INTO Enrollment
+VALUES(100, 1003, 'A');
+
+INSERT INTO Enrollment
+VALUES(101, 1000, 'C');
+
+INSERT INTO Enrollment
+VALUES(102, 1000, 'C');
+
+INSERT INTO Enrollment
+VALUES(102, 1001, NULL);
+
+INSERT INTO Enrollment
+VALUES(102, 1003, 'I');
+
+SELECT * FROM Location;
+
+SELECT * FROM Faculty;
+
+SELECT * FROM Student;
+
+SELECT * FROM Term;
+
+SELECT * FROM Course;
+
+SELECT * FROM Course_Section;

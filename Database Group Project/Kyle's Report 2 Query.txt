@@ -1,0 +1,10 @@
+Report 2 – A program guide for a particular customer and a particular day showing the show time, channel number, channel type, program name, program description and rating (G, PG, etc.). The report should be sorted by showtime.  This report should only display programs for a single date and customer of your choice.
+
+select program.programname, programdescription, showdatetime, rating.ratingcode, channel.channelnumber, channeltype.channeltype
+from rating join program on rating.ratingid = program.ratingid
+join channeltype on program.channeltypeid = channeltype.channeltypeid
+join channel on channeltype.channeltypeid = channel.channeltypeid
+join survey on channel.channelid = survey.channelid
+where customerid = 1
+and program.showdatetime like '01-JUN%'
+order by showdatetime;
