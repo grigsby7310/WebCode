@@ -1,0 +1,6 @@
+C:\Users\kgrigsby\Documents\Visual Studio 2012\Projects\CIS247_WK7_Lab_GRIGSBY\CIS247_WK7_Lab_GRIGSBY\bin\Debug\CIS247_WK7_Lab_GRIGSBY.exe.config
+C:\Users\kgrigsby\Documents\Visual Studio 2012\Projects\CIS247_WK7_Lab_GRIGSBY\CIS247_WK7_Lab_GRIGSBY\bin\Debug\CIS247_WK7_Lab_GRIGSBY.exe
+C:\Users\kgrigsby\Documents\Visual Studio 2012\Projects\CIS247_WK7_Lab_GRIGSBY\CIS247_WK7_Lab_GRIGSBY\bin\Debug\CIS247_WK7_Lab_GRIGSBY.pdb
+C:\Users\kgrigsby\Documents\Visual Studio 2012\Projects\CIS247_WK7_Lab_GRIGSBY\CIS247_WK7_Lab_GRIGSBY\obj\Debug\CIS247_WK7_Lab_GRIGSBY.csprojResolveAssemblyReference.cache
+C:\Users\kgrigsby\Documents\Visual Studio 2012\Projects\CIS247_WK7_Lab_GRIGSBY\CIS247_WK7_Lab_GRIGSBY\obj\Debug\CIS247_WK7_Lab_GRIGSBY.exe
+C:\Users\kgrigsby\Documents\Visual Studio 2012\Projects\CIS247_WK7_Lab_GRIGSBY\CIS247_WK7_Lab_GRIGSBY\obj\Debug\CIS247_WK7_Lab_GRIGSBY.pdb
