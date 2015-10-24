@@ -1,0 +1,173 @@
+.grid_1 { width: 6.5%; } /* 65px/1000px = 0.065px */
+.grid_1a{ width: 6.5%; }
+.grid_2 { width: 15%; } /* 150px/1000px =  0.15px */
+.grid_3 { width: 23.5%; } /* 235px/1000px = 0.235px */
+.grid_4 { width: 32%; } /* 320px/1000px = 0.32px */
+.grid_5 { width: 40.5%; } /* 405px/1000px = 0.405px */
+.grid_6 { width: 49%; } /* 490px/1000px = 0.49px */
+.grid_7 { width: 57.5%; } /* 575px/1000px = 0.575px */
+.grid_8 { width: 66%; } /* 660px/1000px = 0.66px */
+.grid_9 { width: 74.5%; } /* 745px/1000px = 0.745px */
+.grid_10 { width: 83%; } /* 830px/1000px = 0.83px */
+.grid_11 { width: 91.5%; } /* 915px/1000px = 0.915px */
+.grid_12 { width: 100%; } /* 1000px/1000px = 1 */
+
+.grid_1,
+.grid_1a,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9, 
+.grid_10,
+.grid_11,
+.grid_12 {
+	float: left;
+	display: inline-block;
+	box-sizing:border-box;
+}
+
+.left { /* overrides margin for left most elements */
+	margin-left: 0;
+}
+  
+.right { /* overrides margin for right most elements */
+	margin-right: 0;
+} 
+
+.vertMiddle {
+	position: relative;
+	top: 50%;
+	transform: translateY(75%);
+}
+.bigWrapper{  /*  sets the page width, the only absolute size in pixels */
+	width: 100%; 
+	max-width: 100%;
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-bottom: auto;
+	margin-top: auto;
+	
+}
+
+.wrapper { /*  outer div container, to hold grid divisions */
+	width: 100%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	float: left;
+	display: block;
+	box-sizing:border-box;
+}
+
+html{
+	background: linear-gradient(180deg, #CCCCCC, #FFFFFF);
+}
+
+.grid_1{
+	position: absolute;
+	background: linear-gradient(0deg, #E6EBFA, #6685E0);
+	width: 68px;
+	color: white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	border: 1px solid blue;
+}
+
+.grid_1 h1{
+	border-bottom: 1px solid white;
+}
+
+.grid_1a h1{
+	color: red;
+	position: absolute;
+	margin-left: 70px;
+	padding-left: 5px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	border-bottom: 1px solid blue;
+}
+
+.grid_10{
+	margin-left: 190px;
+	background: linear-gradient(0deg, #E6EBFA, #6685E0);
+	color: white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	border: 1px solid blue;
+	margin-right: 1em;
+}
+
+.grid_10 h1{
+	margin-left: 5px;
+	border-bottom: 1px solid white;
+}
+
+.big_red{
+	color: red;
+}
+
+.grid_12{
+	background: linear-gradient(0deg, #E6EBFA, #6685E0);
+	border: 1px solid blue;
+	transition: transform 1s;
+}
+
+.grid_12:hover{
+	transform: scale(1.02);
+}
+
+.greekPic{
+	float: left;
+	margin-right: 20px;
+	border-bottom: 2px solid blue;
+	border-right: 2px solid blue;
+	border-top: 2px solid white;
+	border-left: 2px solid white;
+}
+
+.grid_12a{
+	background: linear-gradient(0deg, #E6EBFA, #6685E0);
+	padding: 20px;
+}
+
+.grid_12a h2{
+	border-bottom: 1px solid white;
+}
+
+nav li{
+	display: inline-block;
+	padding-right: 20px;
+	font: bold 1.5em "Trebuchet MS", Helvetica, sans-serif;
+	border-right: 1px solid white;
+	padding-left: 15px;
+}
+
+nav a{
+	text-decoration: none;
+	color: white;
+	transition: color 1s;
+}
+
+nav a:hover{
+	color: blue;
+}
+
+#slider{
+	background: #000;
+	border: 5px solid #eaeaea;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+	height: 320px;
+	width: 680px;
+	margin: 40px auto 0;
+	overflow: visible;
+	position: relative;
+}
+
+.clear { /*  prevents float drops and puts content on its own line */
+	clear:both;
+	display:block;
+	overflow:hidden;
+	visibility:hidden;
+	width:0;
+	height:0;
+}
