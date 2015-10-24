@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Forms</title>
+	<link rel = "stylesheet" href = "main.css"/>
+</head>
+<body>
+	<div class = "bigWrapper">
+			<div class = "grid_12">
+			<header>
+				<h2>K.C.<bdi class = "big_red">twister</bdi> Camping and Equipment</h2>
+				<h3>Complete Your Order</h3>
+			</header>
+			</div>
+		<div class = "wrapper">	
+			<div class = "grid_4">
+				<h3>Added to Cart</h3>
+				<ol>
+					<li>(1) kayak with rudder: $775.00</li>
+					<li>(1) 10 L dry bag: $15.00</li>
+					<li>(1) helmet: $50.00</li>
+					<li>(1) helmet: $50.00</li>
+				</ol>
+				<h3>Current Total: $890.00</h3>
+			</div>
+			<div class = "grid_8">
+				<img src = "kayak-454355_640.jpg" class = "kayak" alt = "kayak"/>
+				<img src = "sleeping-bag-59653_640.jpg" class = "bag" alt = "sleeping bag">
+				<img src = "bicycle-helmet-505401_640.jpg" class = "front-helmet" alt = "helmet.front"/>
+				<img src = "bicycle-helmet-505402_640.jpg" class = "back-helmet" alt = "helmet.back">
+			</div>
+		<div class = "wrapper">
+			<div class = "grid_12">
+				<form name="myform" action="thanks.html" method="post">
+					<fieldset class = "orderInfo">
+					<legend>Order Information</legend>
+					<label for="firstname">First name:</label>
+					<input type="text" name="firstname" id="firstname" required autofocus><br/><label for="lastname">Last name:</label>
+					<input type="text" name="lastname" id="lastname" required><br/>
+					<label for="address">Address:</label>
+					<input type="text" name="address" id="address" required><br/>
+					<label for="phoneNumber">Phone:</label>
+					<input type="text" name="phoneNumber" id="phoneNumber"><br/>
+					<label for="email">Email:</label>
+					<input type="text" name="email" id="email"><br/><br/>
+					</fieldset>
+					<br/>		
+			<div class = "grid_12">	
+					<br/>
+					<fieldset class="options">
+					<legend>Order Option</legend>
+					<input type="radio" name="shipping" id="shipping1" value="delivery" required>
+					<label for="shipping1">Delivery</label><br/>
+					<input type="radio" name="shipping" id="shipping2" value="pickUp">
+					<label for="shipping2">Pick Up</label><br/>
+					</fieldset>
+					<br/>
+					<fieldset class="creditInfo">
+					<legend>Credit Card Type</legend>
+					<input type="radio" name="credit" id="credit1" value="visa" required>
+					<label for="credit1">Visa</label><br/>
+					<input type="radio" name="credit" id="credit2" value="masterCard">
+					<label for="credit2">MasterCard</label><br/>
+					<input type="radio" name="credit" id="credit3" value="americanExpress">
+					<label for="credit3">American Express</label><br/>
+					</fieldset>
+					<br/>
+					<label for="cardNumber">Credit Card Number:</label>
+					<input type="text" name="cardNumber" id="cardNumber" required><br/><br/>
+					<input type="submit" name="checkout" value="Checkout">
+					<input type="reset" name="resetForm" value="Clear">
+			</div>			
+				</form>		
+			</div>
+		</div>	
+		</div>	
+	</div>
+</body>
+</html>

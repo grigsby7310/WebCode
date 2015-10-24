@@ -1,0 +1,115 @@
+.grid_1 { width: 6.5%; } /* 65px/1000px = 0.065px */
+.grid_2 { width: 15%; } /* 150px/1000px =  0.15px */
+.grid_3 { width: 23.5%; } /* 235px/1000px = 0.235px */
+.grid_4 { width: 32%; } /* 320px/1000px = 0.32px */
+.grid_5 { width: 40.5%; } /* 405px/1000px = 0.405px */
+.grid_6 { width: 49%; } /* 490px/1000px = 0.49px */
+.grid_7 { width: 57.5%; } /* 575px/1000px = 0.575px */
+.grid_8 { width: 66%; } /* 660px/1000px = 0.66px */
+.grid_9 { width: 74.5%; } /* 745px/1000px = 0.745px */
+.grid_10 { width: 83%; } /* 830px/1000px = 0.83px */
+.grid_11 { width: 91.5%; } /* 915px/1000px = 0.915px */
+.grid_12 { width: 100%; } /* 1000px/1000px = 1 */
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9, 
+.grid_10,
+.grid_11,
+.grid_12 {
+	float: left;
+	display: inline-block;
+	box-sizing:border-box;
+}
+.left { /* overrides margin for left most elements */
+	margin-left: 0;
+}  
+.right { /* overrides margin for right most elements */
+	margin-right: 0;
+} 
+.vertMiddle {
+	position: relative;
+	top: 50%;
+	transform: translateY(75%);
+}
+.bigWrapper{  /*  sets the page width, the only absolute size in pixels */
+	width: 1000px; 
+	max-width: 100%;
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-bottom: auto;
+	margin-top: auto;
+	
+}
+.grid_12{
+	background: linear-gradient(180deg,#006600, #80B280);
+	color: white;
+	font-family: cambria;
+}
+.grid_12 h3{
+	border-bottom: 1px solid white;
+}
+.big_red{
+	color: red;
+}
+.grid_4 h3{
+	color: #006600;
+}
+.kayak{
+	height: 100px;
+}
+.bag{
+	height: 100px;
+}
+.front-helmet{
+	height: 100px;
+}
+.back-helmet{
+	height: 100px;
+}
+.wrapper { /*  outer div container, to hold grid divisions */
+	width: 96%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	float: left;
+	display: block;
+	box-sizing:border-box;
+}
+.orderInfo{
+	float: left;
+	text-align: right;
+	padding-right: 1em;
+}
+legend{
+	color: white;
+	border-bottom: 1px solid blue;
+}
+.options{
+	clear: both;
+}
+input{
+	margin-left: 1em;
+	margin-bottom: .5em;
+}
+section {
+	border: 1px solid #000080;
+	border-radius: .9em;
+	box-sizing: border-box;
+	padding: .25em;
+	margin-right: .25em;
+	margin-left: .25em;
+}
+.clear { /*  prevents float drops and puts content on its own line */
+	clear:both;
+	display:block;
+	overflow:hidden;
+	visibility:hidden;
+	width:0;
+	height:0
+}
